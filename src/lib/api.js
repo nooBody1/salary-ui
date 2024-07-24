@@ -1,5 +1,6 @@
 const opts = {
   method: 'post', 
+  body: JSON.stringify(),
   headers: {
       'Content-Type': 'application/json'
   }
@@ -7,7 +8,6 @@ const opts = {
 
 
 async function post(route) {
-
   const res = await fetch(route, opts);
 
   if (res.status != 200) {
@@ -17,10 +17,6 @@ async function post(route) {
   const json = await res.json();
   console.log(json)
   return { OK: true, data: json };
-
 }
 
 export { post };
-
-
-
